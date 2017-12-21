@@ -16,8 +16,8 @@ func TestClientAuthorize(t *testing.T) {
   if err != nil {
     t.Fatal(err)
   }
-  opt := &ClientOption{username: testServerUsername, password: testServerPassword}
-  res, err := DefaultClient.Do(req, opt)
+  client := NewClient{testServerUsername, testServerPassword)
+  res, err := client.Do(req)
 }
 ```
 

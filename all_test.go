@@ -107,8 +107,8 @@ func TestClientAuthorize(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	opt := &ClientOption{username: testServerUsername, password: testServerPassword}
-	res, err := DefaultClient.Do(req, opt)
+	client := NewClient(testServerUsername, testServerPassword)
+	res, err := client.Do(req)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -123,7 +123,7 @@ func TestClientAuthorize(t *testing.T) {
 }
 
 func TestNewClient(t *testing.T) {
-	client := NewClient(testServerUsername,testServerPassword)
-	assert.Equal(t,testServerUsername,client.option.username,"option should equal to set");
-	assert.Equal(t,testServerPassword,client.option.password,"option should equal to set");
+	client := NewClient(testServerUsername, testServerPassword)
+	assert.Equal(t, testServerUsername, client.option.username, "option should equal to set")
+	assert.Equal(t, testServerPassword, client.option.password, "option should equal to set")
 }
